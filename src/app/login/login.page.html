@@ -1,0 +1,19 @@
+<ion-content class="ion-padding">
+  <h1 class="title">SkeletonApp</h1> 
+  <h2 class="slogan">Aquí comienza todo</h2> 
+  <h3 class="welcome">¡Bienvenido!</h3>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input label="Usuario" labelPlacement="stacked" placeholder="Ingrese su usuario" formControlName="username" type="text" maxlength="8"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Contraseña" labelPlacement="stacked" placeholder="Clave de 4 dígitos" formControlName="password" type="password" maxlength="4"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" [disabled]="!loginForm.valid">Ingresar</ion-button>
+  </form>
+
+  <div class="create-account">
+    <a href="#">Crear cuenta gratis</a>
+  </div>
+</ion-content>

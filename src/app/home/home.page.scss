@@ -25,3 +25,18 @@
 #container a {
   text-decoration: none;
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  ion-button {
+    flex: 1; // Hacer que los botones ocupen el mismo espacio
+    margin-right: 5px; // Espacio entre los botones
+  }
+
+  ion-button:last-child {
+    margin-right: 0; // Eliminar el margen derecho del último botón
+  }
+}
