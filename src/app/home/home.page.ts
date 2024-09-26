@@ -13,6 +13,7 @@ interface User {
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  selectedSegment: string = 'misDatos';
   user: User | undefined; // Variable para almacenar los datos del usuario
   name: string = '';
   lastName: string = '';

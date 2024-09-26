@@ -21,6 +21,7 @@ export class LoginPage {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
       const user = { username, password }; // Crea un objeto user con los datos
+      localStorage.setItem('user', JSON.stringify(user)); // Guarda el usuario en el almacenamiento local
 
       let navigationExtras: NavigationExtras = {
         state: { user } // Pasa el objeto user en el estado
