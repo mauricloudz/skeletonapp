@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./experiencia-laboral.component.scss'],
 })
 export class ExperienciaLaboralComponent  implements OnInit {
+  empresa: string = '';
+  anioInicio: number | null = null;
+  trabajaActualmente: boolean = false;
+  anioTermino: number | null = null;
+  cargo: string = '';
 
   constructor() { }
 

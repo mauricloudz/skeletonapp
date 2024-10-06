@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-
-interface User {
-  username: string;
-  password: string;
-}
+import { User } from '../mis-datos/mis-datos.component'; // Importa la interfaz User
 
 @Component({
   selector: 'app-home',
@@ -30,18 +26,4 @@ export class HomePage implements OnInit {
     }
   }
 
-  async showInfo() {
-    const alert = await this.alertController.create({
-      message: `Su nombre es: ${this.name} ${this.lastName}`,
-      buttons: ['OK'],
-    });
-    await alert.present();
-  }
-
-  clearFields() {
-    this.name = '';
-    this.lastName = '';
-    this.educationLevel = '';
-    this.birthDate = '';
-  }
 }

@@ -1,3 +1,24 @@
-<p>
-  experiencia-laboral works!
-</p>
+<ion-item>
+  <ion-label position="stacked">Empresa</ion-label>
+  <ion-input [(ngModel)]="empresa" placeholder="Ingrese el nombre de la empresa"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Año inicio</ion-label>
+  <ion-input [(ngModel)]="anioInicio" type="number" placeholder="Ingrese el año de inicio"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Actualmente trabaja aquí</ion-label>
+  <ion-checkbox [(ngModel)]="trabajaActualmente"></ion-checkbox>
+</ion-item>
+
+<ion-item *ngIf="!trabajaActualmente">
+  <ion-label position="stacked">Año término</ion-label>
+  <ion-input [(ngModel)]="anioTermino" type="number" placeholder="Ingrese el año de término"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Cargo</ion-label>
+  <ion-input [(ngModel)]="cargo" placeholder="Ingrese su cargo"></ion-input>
+</ion-item>
