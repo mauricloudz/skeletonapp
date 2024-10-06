@@ -8,6 +8,7 @@ import { HomePage } from './home.page';
 import { MisDatosComponent } from '../mis-datos/mis-datos.component';
 import { ExperienciaLaboralComponent } from '../experiencia-laboral/experiencia-laboral.component';
 import { CertificacionesComponent } from '../certificaciones/certificaciones.component';
+import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,12 @@ import { CertificacionesComponent } from '../certificaciones/certificaciones.com
     IonicModule,
     RouterModule.forChild([{ path: '', component: HomePage }])
   ],
-  declarations: [HomePage, MisDatosComponent, ExperienciaLaboralComponent, CertificacionesComponent]
+  declarations: [
+    HomePage, 
+    MisDatosComponent, 
+    ExperienciaLaboralComponent, 
+    CertificacionesComponent,
+    EditUserModalComponent
+  ]
 })
 export class HomePageModule {}

@@ -1,9 +1,9 @@
-// mis-datos.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { User } from '../home/home.page'; // Importa la interfaz User
 import { UserService } from '../user.service';
+import { ModalController } from '@ionic/angular';
+import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 
 @Component({
   selector: 'app-mis-datos',
@@ -19,27 +19,31 @@ export class MisDatosComponent implements OnInit {
   birthDate: string = '';
 
   constructor(
-    private router: Router,
     private alertController: AlertController,
+    private modalController: ModalController,
     private userService: UserService
   ) {}
 
   ngOnInit() {
-    this.user = this.userService.getUser();
-  }
-
-  async showInfo() {
-    const alert = await this.alertController.create({
-      message: `Su nombre es: ${this.name} ${this.lastName}`,
-      buttons: ['OK'],
+    this.userService.getUser().subscribe(user => {
+      this.user = user;
     });
-    await alert.present();
   }
 
-  clearFields() {
-    this.name = '';
-    this.lastName = '';
-    this.educationLevel = '';
-    this.birthDate = '';
+  async openEditModal() {
+    const modal = await this.modalController.create({
+      component: EditUserModalComponent,
+      componentProps: { user: this.user }
+    });
+
+    modal.onDidDismiss().then((result) => {
+      if (result.data && result.data.reload) {
+        this.userService.getUser().subscribe(user => {
+          this.user = user;
+        });
+      }
+    });
+    
+    return await modal.present();
   }
 }

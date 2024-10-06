@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modifique sus datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="saveChanges()">
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input [(ngModel)]="user.name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Apellido</ion-label>
+      <ion-input [(ngModel)]="user.lastName" name="lastName" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nivel de Educación</ion-label>
+      <ion-select [(ngModel)]="user.educationLevel" name="educationLevel" required>
+        <ion-select-option value="Basica">Basica</ion-select-option>
+        <ion-select-option value="Media">Media</ion-select-option>
+        <ion-select-option value="Tecnico Superior">Tecnico Superior</ion-select-option>
+        <ion-select-option value="Universitario Incompleto">Universitario Incompleto</ion-select-option>
+        <ion-select-option value="Universitario Completo">Universitario Completo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Fecha de Nacimiento</ion-label>
+      <ion-datetime [(ngModel)]="user.birthDate" name="birthDate" displayFormat="YYYY-MM-DD" required></ion-datetime>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Guardar Cambios</ion-button>
+  </form>
+</ion-content>

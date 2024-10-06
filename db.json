@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Mauri",
+      "name": "Mauricio",
+      "lastName": "Poblete",
+      "educationLevel": "Universitario Completo",
+      "birthDate": "1989-08-27"
+    }
+  ]
+}

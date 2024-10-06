@@ -1,34 +1,18 @@
 <h3>Usuario: {{ user?.username }}</h3>
 
 <ion-item>
-    <ion-label position="stacked">Nombre</ion-label>
-    <ion-input [(ngModel)]="name" placeholder="Ingrese su nombre"></ion-input>
-</ion-item>
-
-<ion-item>
-    <ion-label position="stacked">Apellido</ion-label>
-    <ion-input [(ngModel)]="lastName" placeholder="Ingrese su apellido"></ion-input>
-</ion-item>
-
-<ion-item>
+    <ion-label position="stacked">Nombre Completo</ion-label>
+    <ion-input [value]="user?.name + ' ' + user?.lastName" readonly></ion-input>
+  </ion-item>
+  
+  <ion-item>
     <ion-label position="stacked">Nivel de Educación</ion-label>
-    <ion-select [(ngModel)]="educationLevel" placeholder="Seleccione su nivel de educación">
-        <ion-select-option value="secundaria">Secundaria</ion-select-option>
-        <ion-select-option value="universitaria">Universitaria</ion-select-option>
-    </ion-select>
-</ion-item>
-
-<ion-item>
+    <ion-input [value]="user?.educationLevel" readonly></ion-input>
+  </ion-item>
+  
+  <ion-item>
     <ion-label position="stacked">Fecha de Nacimiento</ion-label>
-    <ion-datetime id="datetime" presentation="date" [(ngModel)]="birthDate" [value]="birthDate" [formatOptions]="{
-          date: {
-            month: '2-digit',
-            day: '2-digit',
-            year: 'numeric'
-          }
-        }"></ion-datetime>
-</ion-item>
-<div class="button-container">
-    <ion-button expand="block" (click)="showInfo()">Mostrar</ion-button>
-    <ion-button expand="block" color="light" (click)="clearFields()">Limpiar</ion-button>
-</div>
+    <ion-input [value]="user?.birthDate" readonly></ion-input>
+  </ion-item>
+
+<ion-button expand="block" (click)="openEditModal()">Editar Datos</ion-button>

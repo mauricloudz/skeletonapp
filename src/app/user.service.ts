@@ -1,32 +1,21 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { User } from './home/home.page';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private user: User | null = null;
-  
-  constructor() { }
+  private apiUrl = 'http://localhost:3000/users';
 
-  setUser(user: User): void {
-    this.user = user;
-    localStorage.setItem('user', JSON.stringify(user));
-  }
-  
-  getUser(): User | null {
-    if (!this.user) {
-      const userData = localStorage.getItem('user');
-      if (userData) {
-        this.user = JSON.parse(userData);
-      }
-    }
-    return this.user;
+  constructor(private http: HttpClient) { }
+
+  getUser(): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/1`);
   }
 
-  clearUser(): void {
-    this.user = null;
-    localStorage.removeItem('user');
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/1`, user);
   }
-
 }

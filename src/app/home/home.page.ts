@@ -4,6 +4,10 @@ import { UserService } from '../user.service';
 export interface User {
   username: string;
   password: string;
+  name: string;
+  lastName: string;
+  educationLevel: string;
+  birthDate: string;
 }
 
 @Component({
@@ -18,7 +22,8 @@ export class HomePage implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.user = this.userService.getUser();
+    this.userService.getUser().subscribe((user) => {
+      this.user = user;
+    });
   }
-
 }
