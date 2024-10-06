@@ -19,7 +19,13 @@
 
     
   </div>
+  <div *ngIf="selectedSegment=='misDatos'">
+    <app-mis-datos></app-mis-datos>
+  </div>
   <div *ngIf="selectedSegment=='experienciaLaboral'">
     <app-experiencia-laboral></app-experiencia-laboral>
   </div>
+  <!-- <div *ngIf="selectedSegment=='certificaciones'">
+    <app-certificaciones></app-certificaciones>
+  </div> -->
 </ion-content>

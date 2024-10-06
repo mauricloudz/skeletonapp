@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { MisDatosComponent } from '../mis-datos/mis-datos.component';
 import { ExperienciaLaboralComponent } from '../experiencia-laboral/experiencia-laboral.component';
+import { CertificacionesComponent } from '../certificaciones/certificaciones.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ExperienciaLaboralComponent } from '../experiencia-laboral/experiencia-
     IonicModule,
     RouterModule.forChild([{ path: '', component: HomePage }])
   ],
-  declarations: [HomePage, MisDatosComponent, ExperienciaLaboralComponent]
+  declarations: [HomePage, MisDatosComponent, ExperienciaLaboralComponent, CertificacionesComponent]
 })
 export class HomePageModule {}
