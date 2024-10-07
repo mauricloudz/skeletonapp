@@ -10,6 +10,16 @@ export interface User {
   birthDate: string;
 }
 
+// Implementación de la interfaz para las experiencias laborales
+export interface ExperienciaLaboral {
+  id?: number;
+  empresa: string;
+  anioInicio: number;
+  anioTermino?: number | null;
+  trabajaActualmente: boolean;
+  cargo: string;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -18,6 +28,7 @@ export interface User {
 export class HomePage implements OnInit {
   selectedSegment: string = 'misDatos';
   user: User | null | undefined; // Variable para almacenar los datos del usuario
+  experiencias: ExperienciaLaboral[] = []; // Variable para almacenar las experiencias laborales
 
   constructor(private userService: UserService) {}
 
